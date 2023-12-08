@@ -336,3 +336,30 @@ Processing by CommentsController#new as HTML
 Completed 200 OK in 78ms (Views: 24.4ms | ActiveRecord: 24.6ms | Allocations: 5566)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-08 22:12:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/_post.html.erb (Duration: 0.8ms | Allocations: 224)
+  Rendered posts/_post.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered posts/index.html.erb within layouts/application (Duration: 87.6ms | Allocations: 12597)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 14940)
+Completed 200 OK in 217ms (Views: 110.7ms | ActiveRecord: 4.0ms | Allocations: 25839)
+
+
+Started GET "/" for ::1 at 2023-12-08 22:12:36 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 17)
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 743)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 1185)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.1ms | Allocations: 1468)
+
+
