@@ -114,3 +114,141 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 88ms (Views: 25.4ms | ActiveRecord: 2.6ms | Allocations: 14847)
 
 
+Started GET "/posts/new" for 127.0.0.1 at 2023-12-08 11:00:41 +0200
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 160.7ms | Allocations: 5785)
+  Rendered posts/new.html.erb within layouts/application (Duration: 166.3ms | Allocations: 6103)
+  Rendered layout layouts/application.html.erb (Duration: 169.8ms | Allocations: 6534)
+Completed 200 OK in 463ms (Views: 172.2ms | ActiveRecord: 1.2ms | Allocations: 24678)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-12-08 11:01:28 +0200
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"tittle"=>"New roll-on", "body"=>"last for 24hrs sta fresh"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (3.7ms)[0m  [1m[32mINSERT INTO "posts" ("tittle", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["tittle", "New roll-on"], ["body", "last for 24hrs sta fresh"], ["created_at", "2023-12-08 09:01:28.377589"], ["updated_at", "2023-12-08 09:01:28.377589"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/posts/1
+Completed 302 Found in 60ms (ActiveRecord: 8.2ms | Allocations: 3354)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-12-08 11:01:28 +0200
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 1.8ms | Allocations: 185)
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.4ms | Allocations: 1310)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 1737)
+Completed 200 OK in 69ms (Views: 33.1ms | ActiveRecord: 0.4ms | Allocations: 4768)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2023-12-08 11:01:32 +0200
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.3ms | Allocations: 791)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1047)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 1474)
+Completed 200 OK in 25ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 2162)
+
+
+Started PATCH "/posts/1" for 127.0.0.1 at 2023-12-08 11:01:39 +0200
+Processing by PostsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"tittle"=>"New roll-on", "body"=>"last for 24hrs stay fresh"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:40:in `block in update'
+  [1m[36mPost Update (2.9ms)[0m  [1m[33mUPDATE "posts" SET "body" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["body", "last for 24hrs stay fresh"], ["updated_at", "2023-12-08 09:01:39.343108"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/posts/1
+Completed 302 Found in 29ms (ActiveRecord: 4.7ms | Allocations: 2468)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-12-08 11:01:39 +0200
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 475)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 902)
+Completed 200 OK in 19ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 1519)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-12-08 11:01:41 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/_post.html.erb (Duration: 0.6ms | Allocations: 19)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 1160)
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 1436)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2023-12-08 11:01:44 +0200
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.2ms | Allocations: 732)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 811)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 1242)
+Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 1526)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-12-08 11:02:10 +0200
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"tittle"=>"make-up foundation", "body"=>"it is water proofed"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mPost Create (4.4ms)[0m  [1m[32mINSERT INTO "posts" ("tittle", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["tittle", "make-up foundation"], ["body", "it is water proofed"], ["created_at", "2023-12-08 09:02:10.495969"], ["updated_at", "2023-12-08 09:02:10.495969"]]
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/posts/2
+Completed 302 Found in 21ms (ActiveRecord: 5.0ms | Allocations: 1874)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2023-12-08 11:02:10 +0200
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered posts/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 489)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 916)
+Completed 200 OK in 16ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 1533)
+
+
+Started GET "/posts" for 127.0.0.1 at 2023-12-08 11:02:13 +0200
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/_post.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered posts/_post.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 847)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 1279)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 1555)
+
+
